@@ -5,7 +5,7 @@ import Settings from './screans/settings';
 import Scrol from './screans/Scrol';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 
-global.url = process.env.NODE_ENV === 'production' ? 'https://sivas-97eaa41594f9.herokuapp.com/' : 'http://192.168.1.112:8000';
+global.url = process.env.NODE_ENV === 'production' ? 'https://sivas-97eaa41594f9.herokuapp.com' : 'http://192.168.1.112:8000';
 
 
 function App() {
