@@ -1,0 +1,13 @@
+{
+
+  "scripts": {
+    "start": "npx serve -s build"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

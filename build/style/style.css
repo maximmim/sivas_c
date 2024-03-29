@@ -1,0 +1,866 @@
+@import url("./fonts.css");
+@import url("../fonts/roboto/roboto.css");
+.Register {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top:50% ;
+    width: 60%;
+    height: 40%;
+    border-radius: 25px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgb(218, 218, 218);
+
+}
+.fon {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(142 152 201);
+    transition: transform 0.5s ease;
+}
+.h {
+    transition: transform 5s ease;
+}
+  
+.Hes {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,100%);
+    bottom: 0%;
+    width: 100%;
+    height: 55%;
+    border-radius: 35px 35px 0px 0px;
+    border-color: rgb(32, 56, 160);
+    border: 2px;
+    border-style: solid;
+    transition: transform 1s ease;
+}
+
+
+
+.Title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -400%);
+    top: 10%;
+    font-size: 35px;
+    color:rgb(77 88 143);
+    transition: transform 1s ease;
+}
+
+.reg_fon {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%,100%);
+    bottom: 0%;
+    width: 100%;
+    height: 55%;
+    border-radius: 35px 35px 0px 0px;
+    background-color: rgb(255 255 255);
+    
+    transition: transform 1s ease;
+}
+
+.reg_fons {
+    
+    transition: transform 3s ease;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 0%;
+    width: 100%;
+    height: 30%;
+    border-radius: 35px 35px 0px 0px;
+    background-color: rgb(255 255 255);
+}
+
+
+
+.inp_up  {
+    position: fixed;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%);
+    height: 65px;
+    width: 80%;
+    border: 2px;
+    background-color:white;
+    border-style: solid;
+    border-color: black;
+    color:rgb(44 67 177);
+
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+
+}
+
+
+.inp_reg  {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+
+}
+
+
+
+
+
+.inp_regs  {
+
+        position: fixed;
+        bottom: 5%;
+        width: 80%;
+        height: 65px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color:rgb(44 67 177);
+        border: 4px;
+        border-style: solid;
+        border-color: black;
+        color: white;
+        font-size: 35px;
+        border-radius: 20px;
+        transition: transform 0.5s ease;
+    
+}
+
+
+
+
+.inp_h1 {
+    position: fixed;
+    top: 5px;
+    left: 10px;
+}
+
+
+.hide {
+    position: absolute;
+    width: 50px;
+    height: 35px;
+    right: 0px;
+    top: 32%;
+}
+
+.inp_login  {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%);
+    width: 75%;
+    height: 45px;
+    font-size: 20px;        
+    
+    border: none;
+    border-bottom: 2px solid #333; /* Цвет и толщина нижней линии */
+    background-color: transparent; /* Прозрачный фон */
+    color: #333; /* Цвет текста */
+    padding: 5px 10px; /* Отступы внутри input */
+    font-size: 16px;
+    outline: none; 
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+.inp_password:focus {
+    border-color: rgb(111, 135, 202); 
+    outline: none;
+
+}
+.inp_login:focus {
+    border-color: rgb(111, 135, 202); 
+    outline: none;
+
+}
+#sg2:focus {
+    border-color: rgb(111, 135, 202); 
+    outline: none;
+
+}
+
+
+
+
+
+
+.inp_password  {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%);
+    width: 75%;
+    height: 45px;
+    border: none;
+    border-bottom: 2px solid #333; /* Цвет и толщина нижней линии */
+    background-color: transparent; /* Прозрачный фон */
+    color: #333; /* Цвет текста */
+    padding: 5px 10px; /* Отступы внутри input */
+    font-size: 16px;
+    outline: none; /* Убираем стандартный контур фокуса */
+ 
+}
+
+.Send {
+    position: fixed;
+    bottom: 1%;
+    height: 65px;
+    right: 1%;
+    width: 40%;
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+.Photosd {
+    position: fixed;
+    bottom: 1%;
+    height: 65px;
+    left: 1%;
+    width: 55%;
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+
+
+
+
+.menu {
+    position: fixed;
+    bottom: 1%;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+
+.j1 {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,300%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+
+.j2 {
+    position: fixed;
+    bottom: 1%;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,200%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+
+.j3 {
+    position: fixed;
+    bottom: 85px;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,300%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+
+#dscroll {
+    position: fixed;
+    width: 100%;
+    height: 90%;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    left: 50%;
+    transform: translate(-50%);
+    
+transition: transform 0.5s ease;
+}
+#Spost {transition: transform 0.5s ease;}
+
+.input-login {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 150px;
+    border-radius: 20px;
+    border: none;
+    
+    transition: transform 0.3s ease;
+}
+
+#b1 {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    height: 200px;
+    object-fit: cover; /* Этот стиль сохраняет пропорции изображения и делает его заполняющим */
+    border-radius: 15px;
+}
+@keyframes dwa {
+    0%{
+        width: 90%;
+        height: 200px;
+    }
+    100% {
+        width: 95%;
+        height: 98%;
+    }
+}
+@keyframes dwaf {
+    0%{        
+        width: 90%;
+        height: 90%;
+       
+    }
+    100% {
+        width: 90%;
+        height: 200px;
+    }
+}
+.entry {
+    animation: dwa 0.5s ease forwards;
+  }
+  .entrys {
+    animation: dwaf 0.5s ease forwards;
+  }
+
+
+#version {
+    position: fixed;
+    left: 50%;
+    bottom: -15%;
+    transform: translate(-50%);
+    font-size: 30px;
+    background-color: rgb(162, 203, 255);
+    border-radius: 20px;
+    transition: transform 0.3s ease; 
+}
+
+#w1 {
+    transition: transform 0.3s ease; 
+}
+#w2 {
+    transition: transform 0.3s ease; 
+}
+    
+#place {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 30px;
+    
+    transition: transform 0.3s ease;
+}
+#placedata {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 15px;
+    
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+
+#place-nick {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    font-family: 'Zhizn';
+    transform: translate(-50%);
+    font-size: 20px;
+    color: black;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+}
+#place-text {
+    position: absolute;
+    top: 400px;
+    left: 5px;
+    font-size: 25px;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+.createpost {
+    position: absolute;
+    width: 95%;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 15px;
+    text-align:center;
+    font-size: 30px;
+    height: 100px;
+}
+.addpost {
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+    width: 70px;
+    height: 70px;
+}
+.settings {
+    position: fixed;
+    bottom: 20px;
+    left: 50px;
+    width: 70px;
+    height: 70px;
+}
+
+.createpost p {
+font-family: "Exo 2";
+font-weight: bold;
+}
+#Create_nick {
+    position: fixed;
+    bottom: 10%;
+    font-size: 35px;
+    border: 3px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    background-color: gray;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    text-align: center;
+    height: 5%;
+}
+#input_name {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 30%;
+    border-radius: 15px;
+    width: 70%;
+    height: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+#view_name {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10%;
+    border-radius: 15px;
+    font-size: 40px;
+    width: 90%;
+    text-align: center;
+}
+
+#g_name {
+    position: fixed;
+    bottom: 0%;
+    font-size: 35px;
+    border: 3px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    text-align: center;
+    height: 5%;
+}
+.jsdw {
+    
+    transition: transform 1s ease;
+}
+.Post {
+    position: relative;
+    width: 95%;
+    margin: 5px;
+    left: 49%;
+    transform: translate(-50%);
+    border: 2px; 
+    border-color: black;
+    border-style: solid;
+    border-radius: 15px;
+    height: auto; 
+    overflow: hidden; 
+    transition: transform 3s ease;
+}.Post p {
+word-wrap: break-word;
+font-family: "Zhizn";
+color:white;
+}
+
+.Post-data {
+    position: fixed;
+    bottom: -5px;
+    right: 5px;
+    font-size: 15px;
+background-color: rgba(109, 109, 109, 0.3);    
+border-radius: 5px
+}
+.Post-text {
+
+font-size: 30px;
+}
+.Post-nick {
+    position: fixed;
+    top: -5px;
+    right: 5px;
+    font-size: 15px;
+    background-color: rgba(109, 109, 109, 0.3);    
+    border-radius: 5px
+    }
+    
+
+
+
+
+
+.Post-dataf {
+    position: fixed;
+    bottom: -5px;
+    right: 5px;
+    font-size: 15px;
+    
+}
+
+.Post-textf {
+position: absolute;
+top: 5%;
+left: 50%;
+transform: translate(-50%);
+font-size: 30px;
+}
+
+.Post-nickf {
+    position: fixed;
+    top: -5px;
+    right: 5px;
+    font-size: 15px;
+
+    }
+    .Post-imgf {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Этот стиль сохраняет пропорции изображения и делает его заполняющим */
+        position: absolute; /* Позиционируем изображение относительно родительского div */
+        top: 0;
+        left: 0;
+        filter: blur(3px);
+        z-index: -1;
+        }
+
+.g1 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 230px;
+    width: 90%; 
+    height: 40%;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px;
+    border-color: rgb(107, 107, 107);
+    padding: 10px;
+    border-style: solid;
+}
+.image-gallery-image {
+    width: 90%;
+    height: 200px;
+    border-radius: 30px;
+    transition: transform 0.5s ease;
+}
+#sg1 {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    bottom:50%;
+    width: 85%; 
+    height: 20%;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px;
+    border-color: rgb(107, 107, 107);
+    padding: 10px;
+    transition: transform 0.5s ease;
+    border-style: solid;
+}
+
+
+#sg2 {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10%;
+    width: 70%;
+    height: 5%;
+    font-size: 20px;
+    transition: transform 0.5s ease;
+    text-align: center;
+
+    border: none;
+    border-bottom: 2px solid #333; /* Цвет и толщина нижней линии */
+    background-color: transparent; /* Прозрачный фон */
+    color: #333; /* Цвет текста */
+    padding: 5px 10px; /* Отступы внутри input */
+    font-size: 16px;
+    outline: none; 
+    
+}
+
+
+.g2 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 100px;
+    width: 50%;
+    height: 5%;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 20px;
+    
+}
+
+#inputphoto {
+    position: fixed;
+    left: 5%;
+    bottom: -15%;
+    transition: transform 0.5s ease;
+    border-radius: 15px;
+    font-size: 20px;
+    width: 50%;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    height: 10%;
+    overflow: hidden;
+}
+
+#sg1::placeholder {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    word-wrap: break-word; 
+}
+#colortex {
+    position: fixed;
+    left: 50%;
+    top: 8%;
+    border-radius: 10px;
+    border-color: black;
+    transform: translate(-50%);
+    width: 50%;
+
+}
+#upload {
+    transition: transform 0.5s ease;
+     overflow: hidden;
+    position: fixed;
+    bottom: -15%;
+    width: 35%;
+    height: 10%;
+    right: 5%;
+    border-radius: 25px;
+    font-size: 30px;
+    font-family: "Exo 2";
+    font-weight: bold;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+.Post-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Этот стиль сохраняет пропорции изображения и делает его заполняющим */
+    position: absolute; /* Позиционируем изображение относительно родительского div */
+    top: 0;
+    left: 0;
+    filter: blur(3px);
+    z-index: -1;
+    }
+button {
+    color: black;
+}
+#gr {
+    transition: transform 0.5s ease;
+
+}
+#ng {
+    transition: transform 0.5s ease;
+}
+/* Создаем анимацию entry */
+@keyframes entry {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Применяем анимацию к элементу с классом "entry-animate" */
+  .entry-animate {
+    animation: entry 0.5s ease forwards;
+  }
+  #pssd {
+    
+    transition: transform 0.5s ease;
+  }
+  
+  #Hes {
+    
+    transition: transform 1s ease;
+  }
+  
+    .Post-Skeleton {
+        position: relative;
+        width: 95%;
+        margin: 5px;
+        left: 49%;
+        transform: translateX(-50%);
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        border-radius: 15px;
+        height: 100px; /* Автоматическая высота в зависимости от содержимого */
+        overflow: hidden;
+        background-color: #f0f0f0; /* Цвет скелетона */
+
+      }
+.plas {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+    font-family: "Zhizn";
+}
+      
+      .Skeleton-Image {
+        word-wrap: break-word;
+        font-family: "Zhizn";
+        color: #dcdcdc; /* Цвет текста скелетона */
+      }
+      
+      .Skeleton-Data {
+        position: absolute;
+        bottom: -5px;
+        right: 5px;
+        font-size: 15px;
+        color: #dcdcdc; /* Цвет данных скелетона */
+      }
+      
+
+      
+      .Skeleton-Image {
+        width: 90%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top:50%;
+        border-radius: 15px;
+        height: 80px; /* Высота изображения в скелетоне */
+        background-color: #dcdcdc; /* Цвет изображения в скелетоне */
+      }
+      
+
+
+
+      @media only screen and (min-width: 768px) and (max-width: 1024px) {
+       .inp_login,.inp_password,.inp_reg,.inp_up {
+        width: 250px;
+       }
+       .reg_fon {
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        bottom: 0%;
+        width: 60%;
+        height: 45%;
+        border-radius: 35px;
+        background-color: rgb(255 255 255);
+        transition: transform 1s ease;
+    }
+        .menu,.j1,.j2,.j3 {
+            width: 40%;
+        }
+
+
+    }
+    
