@@ -47,7 +47,7 @@ function Settings() {
                             setTimeout(() => {
                                 localStorage.nick = login; 
                                 window.location.href = "/"
-                            }, 500);
+                            }, 1000);
                         
                 
                                 
