@@ -108,7 +108,7 @@ const Nws = ({func}) => {
 
     
       <textarea
-        placeholder="Ведіть текст"
+        placeholder="Enter your text here"
         value={fulltext}
         id="sg1"
         className="k"
@@ -119,7 +119,7 @@ const Nws = ({func}) => {
      
         className="k"
         id="sg2"
-        placeholder="Ведіть заголовок"
+        placeholder="Enter a title"
         value={placeholder}
         onChange={handleInputChange2}
       />
