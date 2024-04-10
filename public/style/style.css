@@ -947,7 +947,7 @@ button {
     #place-text {
         left: 5%;
     }
-        .menu,.j1,.j2,.j3 {
+        .menu,.menus,.j1,.j2,.j3,.j4 {
             width: 40%;
         }
         .Post,.Post-Skeleton {

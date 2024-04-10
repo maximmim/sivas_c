@@ -100,6 +100,7 @@ function Home() {
       j1.style.transform = "translate(-50%,300%)";
       j2.style.transform = "translate(-50%,200%)";
       s = false;
+      Hes.style.transform = "translate(-50%,150%)";
     } else {
       if (ng) {
         ng.style.transform = "translate(-120%,0%)";
@@ -165,16 +166,16 @@ function Home() {
       console.error("Failed to send push notification");
     }
   };
-
   async function senck() {
-    if (ng) {
-      ng.style.transform = "translate(-120%,0%)";
-    }
+
+    ng.style.transform = "translate(-120%,0%)";
+        
+
     menu.style.transform = "translate(-200%,0%)";
     Setread(true)
     document.getElementById("place").style.transform = "translate(-50%,0%)";
     document.getElementById("place-text").style.transform = "translate(0%,0%)";
-    
+    ng.style.transform = "translate(-120%,0%)";
     document.getElementsByClassName("menus")[0].style.transform = "translate(-50%,0%)";
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
   }
@@ -189,7 +190,7 @@ function Home() {
     document.getElementById("j3").style.transform = "translate(-50%,200%)";
     document.getElementById("j4").style.transform = "translate(-50%,300%)";  
 
-    document.getElementsByClassName("menus")[0].style.transform = "translate(-200%,0%)";  
+    document.getElementsByClassName("menus")[0].style.transform = "translate(-300%,0%)";  
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-200%,0%)";
 
   }
