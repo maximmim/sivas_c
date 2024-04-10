@@ -178,7 +178,7 @@ function Home() {
     Setread(true)
     document.getElementById("place").style.transform = "translate(-50%,0%)";
     document.getElementById("place-text").style.transform = "translate(0%,0%)";
-    ng.style.transform = "translate(-120%,0%)";
+    document.getElementById("ng").style.transform = "translate(-120%,0%)";
     document.getElementsByClassName("menus")[0].style.transform = "translate(-50%,0%)";
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
   }
