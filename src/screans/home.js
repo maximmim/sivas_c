@@ -95,7 +95,7 @@ function Home() {
     if (s) {
       menu.style.transform = "translate(-50%,0%)";
       if (!loading) {
-        ng.style.transform = "translate(0%,0%)";
+        document.getElementById("ng").style.transform = "translate(0%,0%)";
         Hes.style.transform = "translate(-50%,150%)";
       j1.style.transform = "translate(-50%,300%)";
       j2.style.transform = "translate(-50%,200%)";
@@ -105,7 +105,7 @@ function Home() {
 
     } else {
       if (!loading) {
-        ng.style.transform = "translate(-120%,0%)";     
+        document.getElementById("ng").style.transform = "translate(-120%,0%)";     
         menu.style.transform = "translate(-50%,-250%)";
         j1.style.transform = "translate(-50%,0%)";
         j2.style.transform = "translate(-50%,0%)";
