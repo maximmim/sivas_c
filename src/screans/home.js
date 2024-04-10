@@ -49,10 +49,10 @@ function Home() {
         data: "data",
       });
       setD(h);
-      setLoading(false);
       if (h.length === 0) {
         setVis(true);
       }
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -65,6 +65,7 @@ function Home() {
       }
       reload();
       setInterval(()=>{
+        setLoading(true)
         reload();
       },1000*30)
     } else {
@@ -93,22 +94,24 @@ function Home() {
     
     if (s) {
       menu.style.transform = "translate(-50%,0%)";
-      if (ng) {
+      if (!loading) {
         ng.style.transform = "translate(0%,0%)";
-      }
-      Hes.style.transform = "translate(-50%,150%)";
+        Hes.style.transform = "translate(-50%,150%)";
       j1.style.transform = "translate(-50%,300%)";
       j2.style.transform = "translate(-50%,200%)";
       s = false;
       Hes.style.transform = "translate(-50%,150%)";
-    } else {
-      if (ng) {
-        ng.style.transform = "translate(-120%,0%)";
       }
-      menu.style.transform = "translate(-50%,-250%)";
-      j1.style.transform = "translate(-50%,0%)";
-      j2.style.transform = "translate(-50%,0%)";
-      s = true;
+
+    } else {
+      if (!loading) {
+        ng.style.transform = "translate(-120%,0%)";     
+        menu.style.transform = "translate(-50%,-250%)";
+        j1.style.transform = "translate(-50%,0%)";
+        j2.style.transform = "translate(-50%,0%)";
+        s = true;
+      }
+ 
     }
   }
   }
@@ -168,7 +171,7 @@ function Home() {
   };
   async function senck() {
 
-    ng.style.transform = "translate(-120%,0%)";
+    document.getElementById("ng").style.transform = "translate(-120%,0%)";
         
 
     menu.style.transform = "translate(-200%,0%)";
@@ -180,9 +183,9 @@ function Home() {
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
   }
   async function censk() {
-    if (ng) {
-      ng.style.transform = "translate(0%,0%)";
-    }
+
+    document.getElementById("ng").style.transform = "translate(0%,0%)";
+    
     menu.style.transform = "translate(-50%,0%)";
     Setread(false)
     document.getElementById("place").style.transform = "translate(-550%,0%)";
