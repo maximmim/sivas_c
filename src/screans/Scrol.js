@@ -22,7 +22,7 @@ const [d,setd] = useState([])
 
 const [loading, setLoading] = useState(true);
 useEffect(() => {
-get("https://654a46cae182221f8d52def1.mockapi.io/posts").then(data=>{
+get(global.url+"/get_data").then(data=>{
     setd(data);
 setLoading(false);
 })

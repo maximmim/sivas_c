@@ -1,7 +1,8 @@
 const CACHE_NAME = 'Every';
 
 const STATIC_RESOURCES = [
-    '/'
+    '/',
+    '/src/firebase.js'
   ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -12,19 +13,23 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-
 self.addEventListener('push', function(event) {
-  // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification
+  // Извлекаем данные из push-события
+  const data = event.data.json();
+
+  // Опции для уведомления
   const options = {
-    body: "Buzz! Buzz!",
-    icon: "https://i.stack.imgur.com/1rCh2.jpg?s=48&g=1",
-    vibrate: [200, 100, 200, 100, 200, 100, 200],
-    tag: "vibration-sample",
-  }
+      // Текст сообщения в уведомлении
+      body: data.message,
+      // Иконка, отображаемая в уведомлении
+      icon: 'icons/icon-72x72.png'
+  };
 
-  let promise = self.registration.showNotification('Push notification!', options);
-
-  event.waitUntil(promise);
+  // Используем waitUntil для того, чтобы удерживать сервис-воркер активным
+  // пока не будет показано уведомление
+  event.waitUntil(
+      self.registration.showNotification(data.title, options)
+  );
 });
 
 self.addEventListener('activate', (event) => {

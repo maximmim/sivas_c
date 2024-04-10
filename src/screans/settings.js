@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Post } from "../commponet/post";
 
   
 function Settings() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
+    useEffect(()=>{
 
+        faw()
+   
+    },[])
     const handleLogin = () => {
         if (!login || !password) {
             alert('Please enter both login and password.');
@@ -47,7 +51,7 @@ function Settings() {
                             setTimeout(() => {
                                 localStorage.nick = login; 
                                 window.location.href = "/"
-                            }, 1000);
+                            }, 1500);
                         
                 
                                 
@@ -100,8 +104,6 @@ function Settings() {
     };
     
     function faw() {
-        document.getElementsByClassName("jsdw")[0].style.transform = 'translate(0%,-200%)';
-        document.getElementsByClassName("reg_fons")[0].style.transform = 'translate(-50%,650%)';
 
         setTimeout(() => {
             document.getElementsByClassName("Title")[0].style.transform = 'translate(-50%,0%)';
@@ -116,50 +118,11 @@ function Settings() {
 
     }
 
-
-
-   
     return (
         <>  
+
+
             <div className="fon"><h1 className="Title">Welcome!</h1></div>
-
-            <div className="jsdw">
-          
-            <Post
-               nick={"Ann"}
-               key={"1"}
-               img={"https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/A_small_cup_of_coffee.JPG/274px-A_small_cup_of_coffee.JPG"}
-               fulltext={"Coffee is one of the most beloved beverages worldwide. It is made from roasted coffee beans, which are the seeds of the Coffea plant. Coffee comes in various forms, including espresso, cappuccino, latte, and americano, each with its unique flavor and preparation method. Besides its rich taste, coffee contains caffeine, a natural stimulant that can help improve alertness and concentration. Some people enjoy coffee for its social aspects, while others appreciate its aroma and taste. Whether you prefer your coffee black, with milk, or sweetened, there's a coffee drink for everyone. So, grab a cup of coffee and enjoy its warmth and flavor!"}
-               text={"Your favorite coffee?"}
-               data={"15.03.2024"}
-            />
-             <Post
-                nick={"Kate"}
-                key={"2"}
-                img={"https://lh5.googleusercontent.com/p/AF1QipMmzZx6WRQqez33gFVJMiS46TO04QKtEs-ZddJs=w408-h272-k-no"}
-                fulltext={"Renting a scooter has become a popular option for urban transportation in many cities around the world. Scooter rental services offer a convenient way to get around town without the hassle of owning a scooter. Users can simply locate a nearby scooter using a mobile app, unlock it with their smartphone, and start riding. Scooters are often electrically powered, making them eco-friendly and cost-effective. Whether you need to run errands, commute to work, or explore the city, renting a scooter can be a fun and practical choice."}
-                text={"Have you tried scooter rental?"}
-                data={"18.03.2024"}
-            />
-
-            <Post
-                nick={"Mike"}
-                key={"3"}
-                img={"https://uniqa.ua/content/news/001000-002000/beautiful-girl-standing-airport_1157-22072_sm2_1548.jpg"}
-                fulltext={"Air travel is a vital mode of transportation for millions of people worldwide. Whether it's for business or leisure, flying allows individuals to travel long distances quickly and efficiently. With the advent of modern aviation technology, air travel has become safer and more accessible than ever before. From booking tickets online to navigating through airport security, flying has been streamlined to provide a seamless experience for passengers. Despite occasional challenges such as delays and cancellations, air travel remains one of the most popular ways to explore new destinations and connect with loved ones."}
-                text={"Your air travel experience?"}
-                data={"19.03.2024"}
-            />
-
-            </div>
-
-            <div className="reg_fons">
-
-
-
-            <button className="inp_regs" onClick={faw}>Start</button>
-
-            </div>
 
             <div className="reg_fon h">
                 <input 

@@ -6,9 +6,9 @@ export function Fulltext() {
   let data;
   if (localStorage.data) {
     data = JSON.parse(localStorage.data);
-  //  setTimeout(() => {
-  //    localStorage.removeItem('data');
-  //  }, 1000);
+   //setTimeout(() => {
+   //  localStorage.removeItem('data');
+   //}, 1000);
   } else {
     window.location.href = '/';
   }
@@ -31,7 +31,7 @@ export function Fulltext() {
 
 
 function hrs() {
-
+  localStorage.removeItem('data');
   window.location.href = '/';
 }
 
@@ -73,10 +73,10 @@ function hrs() {
     <>
       {localStorage.data && (
         <>
-        <GMene op={hr} text={"Menu📋"} style={"menu"}/>
-<GMene op={hr2} text={"information ℹ️"} style={"j2"} />
+        <GMene op={hr} text={"Menu📋"} styles={"menu"}/>
+<GMene op={hr2} text={"information ℹ️"} styles={"j2"} />
 
-<GMene op={hrs} text={"Go to home🏠"} style={"j3"} />
+<GMene op={hrs} text={"Go to home🏠"} styles={"j3"} />
 
   <h1 id='place'>{data.text}</h1>
         <p id='place-text'>{data.fulltext}</p>

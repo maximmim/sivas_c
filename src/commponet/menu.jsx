@@ -1,11 +1,8 @@
-
-
-
-const GMene = ({op,text,style}) => {
+const GMene = ({op,text,styles}) => {
 
 
     return (
-        <button onClick={op} id={style} className={style}>{text}</button>
+        <button onClick={op} id={styles} className={styles}>{text}</button>
     )
 
 }

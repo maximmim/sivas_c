@@ -222,13 +222,41 @@
     outline: none; /* Убираем стандартный контур фокуса */
  
 }
+#loader {
+    position: fixed;
+    left: 90%;
+    top: 40%;
+    transform: translate(-50%);
+    width: 100%;
+    height: 100vh;
+    transition: transform 0.5s ease;
+    
+    transform: translate(-150%,0%); 
+}
 
+.loader-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid #3498db;
+    border-top: 8px solid #f1f1f1;
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 .Send {
     position: fixed;
     bottom: 1%;
     height: 65px;
     right: 1%;
-    width: 41%;
+    width: 47%;
     background-color:rgb(44 67 177);
     border: 2px;
     border-style: solid;
@@ -244,8 +272,8 @@
     bottom: 1%;
     height: 65px;
     left: 1%;
-    width: 55%;
-    background-color:rgb(44 67 177);
+    width: 47%;
+    background-color:rgb(12, 29, 114);
     border: 2px;
     border-style: solid;
     border-color: black;
@@ -257,6 +285,24 @@
 }
 
 
+.menus {
+    position: fixed;
+    bottom: 1%;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-200%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
 
 
 .menu {
@@ -277,7 +323,17 @@
     font-family: 'intro';
     transition: transform 0.5s ease;
 }
+.menu.open {
+    transform: translate(-50%, -250%);
+}
 
+.j1.open {
+    transform: translate(-50%, 0%);
+}
+
+.j2.open {
+    transform: translate(-50%, 150%);
+}
 .j1 {
     position: fixed;
     bottom: 90px;
@@ -318,6 +374,24 @@
 
 .j3 {
     position: fixed;
+    bottom: 1%;
+    left: 50%;
+    height: 65px;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%,200%);
+    background-color:rgb(44 67 177);
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    color: white;
+    font-size: 25px;
+    border-radius: 20px;
+    font-family: 'intro';
+    transition: transform 0.5s ease;
+}
+.j4 {
+    position: fixed;
     bottom: 85px;
     left: 50%;
     height: 65px;
@@ -337,14 +411,14 @@
 
 #dscroll {
     position: fixed;
-    width: 100%;
+    width: 95%;
     height: 90%;
     border: 2px;
     border-color: black;
     border-style: solid;
     left: 50%;
     transform: translate(-50%);
-    
+    border-radius: 15px;
 transition: transform 0.5s ease;
 }
 #Spost {transition: transform 0.5s ease;}
@@ -418,19 +492,18 @@ transition: transform 0.5s ease;
 }
     
 #place {
-    position: absolute;
+    position: fixed;
     top: 250px;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-550%);
     font-size: 30px;
-    
     transition: transform 0.3s ease;
 }
 #placedata {
     position: fixed;
     top: 35%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-550%);
     font-size: 15px;
     
     transition: transform 0.3s ease;
@@ -442,18 +515,22 @@ transition: transform 0.5s ease;
     top: 25%;
     left: 50%;
     font-family: 'Zhizn';
-    transform: translate(-50%);
+    transform: translate(-550%);
     font-size: 20px;
     color: black;
     transition: transform 0.3s ease;
     white-space: nowrap;
 }
 #place-text {
-    position: absolute;
+    position: fixed;
     top: 400px;
     left: 5px;
+    transform: translate(-550%);
     font-size: 25px;
+    width: 100%;
     z-index: -1;
+    overflow-wrap: break-word; /* Забезпечуємо перенос тексту */
+
     transition: transform 0.3s ease;
 }
 .createpost {
@@ -638,11 +715,19 @@ font-size: 30px;
     padding: 10px;
     border-style: solid;
 }
-.image-gallery-image {
+.image-gallery{
+    position: fixed !important;
+    top: 3%;
+    left: 50%;
+    transform: translate(-200%);
     width: 90%;
     height: 200px;
     border-radius: 30px;
     transition: transform 0.5s ease;
+}
+.image-gallery-image{
+    width: 90%;
+    height: 200px;
 }
 #sg1 {
     position: fixed;
@@ -799,9 +884,9 @@ button {
         border-color: black;
         border-style: solid;
         border-radius: 15px;
-        height: 100px; /* Автоматическая высота в зависимости от содержимого */
+        height: 100px; 
         overflow: hidden;
-        background-color: #f0f0f0; /* Цвет скелетона */
+        background-color: #f0f0f0;
 
       }
 .plas {
@@ -809,13 +894,12 @@ button {
     left: 50%;
     transform: translate(-50%);
     top: 20%;
-    font-family: "Zhizn";
 }
       
       .Skeleton-Image {
         word-wrap: break-word;
         font-family: "Zhizn";
-        color: #dcdcdc; /* Цвет текста скелетона */
+        color: #dcdcdc; 
       }
       
       .Skeleton-Data {
@@ -823,7 +907,7 @@ button {
         bottom: -5px;
         right: 5px;
         font-size: 15px;
-        color: #dcdcdc; /* Цвет данных скелетона */
+        color: #dcdcdc; 
       }
       
 
@@ -835,8 +919,8 @@ button {
         left: 50%;
         top:50%;
         border-radius: 15px;
-        height: 80px; /* Высота изображения в скелетоне */
-        background-color: #dcdcdc; /* Цвет изображения в скелетоне */
+        height: 80px;
+        background-color: #dcdcdc;
       }
       
 
@@ -857,8 +941,17 @@ button {
         background-color: rgb(255 255 255);
         transition: transform 1s ease;
     }
+    .Hes {
+        width: 70%;
+    }
+    #place-text {
+        left: 5%;
+    }
         .menu,.j1,.j2,.j3 {
             width: 40%;
+        }
+        .Post,.Post-Skeleton {
+            width: 60%;
         }
 
 

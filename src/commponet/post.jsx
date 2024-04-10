@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
-export function Post({ nick, colort, text, data, fulltext, img }) {
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
+export function Post({ nick, colort, text, data, fulltext, img,op }) {
 
-  function opend() {
+
+  function opend() {    
     localStorage.data = JSON.stringify({
       text: text,
       data: data,
@@ -12,29 +12,11 @@ export function Post({ nick, colort, text, data, fulltext, img }) {
       color: colort,
       nick: nick,
     });
-    window.location.href = "/full";
+    op()
+
+    //window.location.href = "/full";
   }
 
-  const handleImageLoad = () => {
-    setIsImageLoaded(true);
-  };
-
-  let startX;
-
-  function handleTouchStart(event) {
-    startX = event.touches[0].clientX;
-  }
-
-  function handleTouchEnd(event) {
-    const endX = event.changedTouches[0].clientX;
-    const deltaX = endX - startX;
-
-    if (deltaX < 200) {
-      console.log("Swiped from right to left");
-    }
-
-    startX = null;
-  }
 
 
   const postStyle = {
@@ -47,14 +29,11 @@ export function Post({ nick, colort, text, data, fulltext, img }) {
   return (
     <div
       onClick={opens}
-      onTouchStart={(event) => handleTouchStart(event)}
-      onTouchEnd={(event) => handleTouchEnd(event)}
       className="Post"
       id="Spost"
       style={postStyle} 
     >
       <img
-        onLoad={handleImageLoad}
         className="Post-img"
         src={img}
         alt="Post"

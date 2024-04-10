@@ -4,7 +4,7 @@ import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import GMene from "./menu";
 
-const Nws = () => {
+const Nws = ({func}) => {
   const [img, setImg] = useState(null);
   const [placeholder, setPlaceholder] = useState('');
   const [fulltext, setFulltext] = useState('');
@@ -16,12 +16,20 @@ const Nws = () => {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
     const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0"); // Месяцы начинаются с 0
+    const month = String(date.getMonth() + 1).padStart(2, "0"); 
     const formattedDate = `${hours}:${minutes} ${day}.${month}`;
     return formattedDate;
   }
 
+  const j1 = document.getElementById("j1");
+  const j2 = document.getElementById("j2");
+  const ng = document.getElementById("ng");
+  const Hes = document.getElementsByClassName('Hes')[0];
+  const menu =  document.getElementById("menu");
+
+
   function handleFileInputClick() {
+    document.getElementsByClassName("Photosd")[0].style.backgroundColor ="rgb(44 67 177)";
     fileInputRef.current.click();
   }
 
@@ -37,10 +45,6 @@ const Nws = () => {
   function handleInputChange2(event) {
     setPlaceholder(event.target.value);
     document.getElementById("sg2").style.color = color;
-  }
-
-  function handleColorChange(event) {
-    setColor(event.target.value);
   }
 
   async function handleUpload() {
@@ -67,8 +71,17 @@ const Nws = () => {
           body: JSON.stringify(daw) 
         });
         if (response.ok) {
-            window.location.href = "/"
-          alert("Стаття успішно завантажена ✅")
+  
+            alert("Your state is upliad ✅")
+            menu.style.transform = "translate(-50%,0%)";     
+            if (ng) {
+        
+             ng.style.transform = "translate(0%,0%)";
+            }
+            Hes.style.transform = 'translate(-50%,150%)'
+            j1.style.transform = "translate(-50%,300%)";
+            j2.style.transform = "translate(-50%,200%)";
+            func()
         } else {
           console.error("Error creating post:", response.status, response.statusText);
         }
@@ -118,9 +131,9 @@ const Nws = () => {
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-      <GMene op={handleUpload} text={"Upload📩"} style={"Send"}/>
+      <GMene op={handleUpload} text={"Upload📩"} styles={"Send"}/>
     
-      <GMene op={handleFileInputClick} text={"Photo📷"} style={"Photosd"}/>
+      <GMene op={handleFileInputClick} text={"Photo📷"} styles={"Photosd"}/>
 
    
         </div>
