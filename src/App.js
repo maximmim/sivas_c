@@ -33,7 +33,7 @@ async function parseHTML(html) {
 async function main() {
   const html = await fetchHTML(url);
   if (html) {
-    const data = await parseHTML(html);
+  await parseHTML(html);
   }
 }
 

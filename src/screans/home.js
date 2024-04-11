@@ -118,7 +118,7 @@ function Home() {
       const existingSubscription = localStorage.getItem('subscription');
       if (existingSubscription) {
         console.log('Subscription already exists.');
-        await sendMessage("Welcome to our app!");
+        await sendMessage("How are you ?");
         return; 
       }
   
@@ -139,7 +139,7 @@ function Home() {
       localStorage.setItem('subscription', JSON.stringify(subscription));
   
       console.log("Subscribe success");
-      await sendMessage("Welcome to our app!");
+      await sendMessage("Test notification!");
     } catch (error) {
       console.error(error);
       console.error("Failed to subscribe");
@@ -171,7 +171,6 @@ function Home() {
     document.getElementById("menu").style.transform = "translate(-200%,0%)";
     Setread(true);
     setTimeout(()=>{
-      
     document.getElementById("place").style.transform = "translate(-50%,0%)";
     document.getElementById("place-text").style.transform = "translate(0%,0%)";
     document.getElementById("ng").style.transform = "translate(-120%,0%)";
@@ -179,9 +178,6 @@ function Home() {
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
     })
 }
-
-
-
   async function censk() {
 
     document.getElementById("ng").style.transform = "translate(0%,0%)";
