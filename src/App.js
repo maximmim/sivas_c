@@ -10,7 +10,7 @@ global.url = process.env.NODE_ENV === 'production' ? 'https://sivas-s.onrender.c
 
 function App() {
 const url = 'https://sivas-s.onrender.com/get_data';
-
+global.datg = '';
 useEffect(()=>{
 async function fetchHTML(url) {
   try {

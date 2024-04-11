@@ -24,16 +24,10 @@ async function get(url) {
 function Home() {
   const [d, setD] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [vis, setVis] = useState(false);
   const [read, Setread] = useState(false);
   const [imageLoadCount, setImageLoadCount] = useState(0);
   const subscribeId= null
-
-  const j1 = document.getElementById("j1");
-  const j2 = document.getElementById("j2");
-  const ng = document.getElementById("ng");
-  const Hes = document.getElementsByClassName("Hes")[0];
-  const menu = document.getElementById("menu");
+  let lol = '';
 
   const reload = async () => {
     try {
@@ -49,9 +43,7 @@ function Home() {
         data: "data",
       });
       setD(h);
-      if (h.length === 0) {
-        setVis(true);
-      }
+      
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -81,10 +73,10 @@ function Home() {
   let s = false;
 
   function hr1() {
-    menu.style.transform = "translate(-50%,-900%)";
-    j1.style.transform = "translate(-50%,300%)";
-    j2.style.transform = "translate(-50%,200%)";
-    Hes.style.transform = "translate(-50%,0%)";
+    document.getElementById("menu").style.transform = "translate(-50%,-900%)";
+    document.getElementById("j1").style.transform = "translate(-50%,300%)";
+    document.getElementById("j2").style.transform = "translate(-50%,200%)";
+    document.getElementsByClassName("Hes")[0].style.transform = "translate(-50%,0%)";
   }
 
 
@@ -93,22 +85,23 @@ function Home() {
 
     
     if (s) {
-      menu.style.transform = "translate(-50%,0%)";
+      document.getElementById("menu").style.transform = "translate(-50%,0%)";
       if (!loading) {
-        document.getElementById("ng").style.transform = "translate(0%,0%)";
-        Hes.style.transform = "translate(-50%,150%)";
-      j1.style.transform = "translate(-50%,300%)";
-      j2.style.transform = "translate(-50%,200%)";
+        
+      document.getElementsByClassName("Hes")[0].style.transform = "translate(-50%,150%)";
+      document.getElementById("j1").style.transform = "translate(-50%,300%)";
+      document.getElementById("j2").style.transform = "translate(-50%,200%)";
       s = false;
-      Hes.style.transform = "translate(-50%,150%)";
+      document.getElementById("ng").style.transform = "translate(0%,0%)";
+    
       }
 
     } else {
       if (!loading) {
         document.getElementById("ng").style.transform = "translate(-120%,0%)";     
-        menu.style.transform = "translate(-50%,-250%)";
-        j1.style.transform = "translate(-50%,0%)";
-        j2.style.transform = "translate(-50%,0%)";
+        document.getElementById("menu").style.transform = "translate(-50%,-250%)";
+        document.getElementById("j1").style.transform = "translate(-50%,0%)";
+        document.getElementById("j2").style.transform = "translate(-50%,0%)";
         s = true;
       }
  
@@ -136,8 +129,10 @@ function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+         
           subscription: subscription,
-          id: subscribeId,
+          id: subscribeId, 
+          nick:localStorage.nick,
         }),
       });
       
@@ -150,8 +145,7 @@ function Home() {
       console.error("Failed to subscribe");
     }
   };
-  
-  const sendMessage = async (message) => {
+    const sendMessage = async (message) => {
     try {
       await fetch(global.url +"/send", {
         method: "POST",
@@ -169,24 +163,30 @@ function Home() {
       console.error("Failed to send push notification");
     }
   };
-  async function senck() {
-
+  
+  async function senck(f) {
     document.getElementById("ng").style.transform = "translate(-120%,0%)";
-        
 
-    menu.style.transform = "translate(-200%,0%)";
-    Setread(true)
+    
+    document.getElementById("menu").style.transform = "translate(-200%,0%)";
+    Setread(true);
+    setTimeout(()=>{
+      
     document.getElementById("place").style.transform = "translate(-50%,0%)";
     document.getElementById("place-text").style.transform = "translate(0%,0%)";
     document.getElementById("ng").style.transform = "translate(-120%,0%)";
     document.getElementsByClassName("menus")[0].style.transform = "translate(-50%,0%)";
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
-  }
+    })
+}
+
+
+
   async function censk() {
 
     document.getElementById("ng").style.transform = "translate(0%,0%)";
     
-    menu.style.transform = "translate(-50%,0%)";
+    document.getElementById("menu").style.transform = "translate(-50%,0%)";
     Setread(false)
     document.getElementById("place").style.transform = "translate(-550%,0%)";
     document.getElementById("place-text").style.transform = "translate(-550%,0%)";
@@ -197,6 +197,9 @@ function Home() {
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-200%,0%)";
 
   }
+
+
+
 
   return (
     <div id="body">
@@ -227,10 +230,9 @@ function Home() {
           </div>
         </div>
       )}
-
       <div className="Read">
         
-      <Fulltest p={censk}/>
+      <Fulltest p={censk} datas={lol} />
       </div>
 
       <GMene op={hr} text={"Menu📋"} styles={"menu"} />
@@ -238,7 +240,6 @@ function Home() {
       <GMene op={onSubmitSubscribe} text={"Settings⚙️"} styles={"j2"} />
       <Nws func={reload} />
       <p id="version">1.0.2v</p>
-      {vis && <h1 className="plas">None posts :(</h1>}
     </div>
   );
 }

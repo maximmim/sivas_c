@@ -4,6 +4,15 @@ export function Post({ nick, colort, text, data, fulltext, img,op }) {
 
 
   function opend() {    
+    const datas= JSON.stringify({
+      text: text,
+      data: data,
+      fulltext: fulltext,
+      img: img,
+      color: colort,
+      nick: nick,
+    });
+    global.datg = datas
     localStorage.data = JSON.stringify({
       text: text,
       data: data,
@@ -12,7 +21,8 @@ export function Post({ nick, colort, text, data, fulltext, img,op }) {
       color: colort,
       nick: nick,
     });
-    op()
+    
+    op(datas)
 
     //window.location.href = "/full";
   }

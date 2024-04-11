@@ -7,8 +7,8 @@ export function Fulltest({p}) {
 let images
 
     
-  if (localStorage.data) {
-    data = JSON.parse(localStorage.data);
+  if (global.datg) {
+    data = JSON.parse(global.datg);
    //setTimeout(() => {
    //  localStorage.removeItem('data');
    //}, 1000);
@@ -25,19 +25,9 @@ let images
 
 } 
 
-
-
   function hr2() {
 
   }
-
-
-function hrs() {
-  localStorage.removeItem('data');
-  window.location.href = '/';
-}
-
-
 
   let s = false
   function hr() {
@@ -68,7 +58,7 @@ function hrs() {
 
   return (
     <>
-      {localStorage.data && (
+      {global.datg && (
         <>
         <GMene op={hr} text={"Menu📋"} styles={"menus"}/>
 <GMene op={hr2} text={"information ℹ️"} styles={"j3"} />
