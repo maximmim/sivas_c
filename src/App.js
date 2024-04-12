@@ -5,7 +5,7 @@ import Scrol from './screans/Scrol';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { useEffect } from 'react';
 
-global.url = process.env.NODE_ENV === 'production' ? 'https://sivas-s.onrender.com' : 'http://192.168.1.112:8000';
+global.url = process.env.NODE_ENV !== 'production' ? 'https://sivas-s.onrender.com' : 'http://192.168.1.112:8000';
 
 
 function App() {

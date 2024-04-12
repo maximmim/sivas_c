@@ -1,12 +1,11 @@
-const GMene = ({op,text,styles}) => {
+import React, { forwardRef } from 'react';
 
-
+const GMene = forwardRef(({ op, text, styles }, ref) => {
     return (
-        <button onClick={op} id={styles} className={styles}>{text}</button>
-    )
+        <button ref={ref} onClick={op} id={styles} className={styles}>
+            {text}
+        </button>
+    );
+});
 
-}
-
-
-
-export default GMene
+export default GMene;

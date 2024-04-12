@@ -3,15 +3,30 @@ import { storage } from "../firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import GMene from "./menu";
+import imageCompression from "browser-image-compression";
 
-const Nws = ({func}) => {
+const Nws = ({func,refs}) => {
   const [img, setImg] = useState(null);
   const [placeholder, setPlaceholder] = useState('');
   const [fulltext, setFulltext] = useState('');
   const fileInputRef = useRef(null);
-  const [color, setColor] = useState('#000000');
-  const [ddaw, setDdaw] = useState("../img/photp.png");
   const imageListRef = ref(storage, "images/");
+
+  const compressImage = async (file) => {
+    try {
+      const options = {
+        maxSizeMB: 1, 
+        maxWidthOrHeight: 1024, 
+        useWebWorker: true,
+      };
+      const compressedFile = await imageCompression(file, options);
+      return compressedFile;
+    } catch (error) {
+      console.error("Error compressing image:", error);
+      return file;
+    }
+  };
+
   function formatTime(date) {
     const hours = String(date.getHours()).padStart(2, "0");
     const minutes = String(date.getMinutes()).padStart(2, "0");
@@ -33,9 +48,9 @@ const Nws = ({func}) => {
     fileInputRef.current.click();
   }
 
-  function handleFileChange(event) {
-    setImg(event.target.files[0]);
-    setDdaw("../img/photpfull.png");
+  async function handleFileChange(event) {
+    const compressedImage = await compressImage(event.target.files[0]); // Сжатие изображения перед установкой в state
+    setImg(compressedImage);
   }
 
   function handleInputChange1(event) {
@@ -44,7 +59,6 @@ const Nws = ({func}) => {
 
   function handleInputChange2(event) {
     setPlaceholder(event.target.value);
-    document.getElementById("sg2").style.color = color;
   }
 
   async function handleUpload() {
@@ -104,7 +118,7 @@ const Nws = ({func}) => {
 
   return (
     <>
-    <div className="Hes">
+    <div ref={refs} className="Hes">
 
     
       <textarea

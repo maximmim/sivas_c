@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Post } from "../commponet/post";
 import PostSkeleton from "../commponet/postskleton";
 import GMene from "../commponet/menu";
@@ -22,106 +22,106 @@ async function get(url) {
 }
 
 function Home() {
+  const PUBLIC_KEY = "BASbtuZCuVdXUMLM5By1Vw5Z_gkx_llfbv9ll0jPIsdqPYpefWlBPIsk7cs1OT-YhN0baqNODw1w_7Ac8aHg-CE";
+  const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });  
   const [d, setD] = useState([]);
   const [loading, setLoading] = useState(true);
   const [read, Setread] = useState(false);
   const [imageLoadCount, setImageLoadCount] = useState(0);
-  const subscribeId= null
-  let lol = '';
+  const [cloase, setCloase] = useState(false);
+  const subscribeId = null;
+  const menuRef = useRef(null);
+  const newPostRef = useRef(null);
+  const settingsRef = useRef(null);
+  const HesRef = useRef(null);
+  const PostsRef = useRef(null);
+  const menusRef = useRef(null);
+  const settingss = useRef(null);
+  const exit = useRef(null);
+  const place = useRef(null);
+  const place_text = useRef(null);
+  let lol = "";
+  
+const reload = async () => {
+  try {
+    const data = await get(global.url + "/get_data");
+    let h = JSON.parse(data);
+    h.push({
+      nick: "nick",
+      key: "index",
+      colort: "colortext",
+      img: "img",
+      fulltext: "fulltext",
+      text: "text",
+      data: "data",
+    });
+    setD(h);
+    setLoading(false);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-  const reload = async () => {
-    try {
-      const data = await get(global.url + "/get_data");
-      let h = JSON.parse(data);
-      h.push({
-        nick: "nick",
-        key: "index",
-        colort: "colortext",
-        img: "img",
-        fulltext: "fulltext",
-        text: "text",
-        data: "data",
-      });
-      setD(h);
-      
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
+useEffect(() => {
+  if (navigator.onLine) {
+    if (!localStorage.nick) {
+      window.location.href = "/settings";
     }
-  };
-
-  useEffect(() => {
-    if (navigator.onLine) {
-      if (!localStorage.nick) {
-        window.location.href = "/settings";
-      }
+    reload();
+    setInterval(() => {
+      setLoading(true);
       reload();
-      setInterval(()=>{
-        setLoading(true)
-        reload();
-      },1000*30)
-    } else {
-      alert("You are offline!");
-    }
-
-  }, []);
-
-  const handleImageLoaded = () => {
-    setImageLoadCount((prevCount) => prevCount + 1);
-  };
-
-  let s = false;
-
-  function hr1() {
-    document.getElementById("menu").style.transform = "translate(-50%,-900%)";
-    document.getElementById("j1").style.transform = "translate(-50%,300%)";
-    document.getElementById("j2").style.transform = "translate(-50%,200%)";
-    document.getElementsByClassName("Hes")[0].style.transform = "translate(-50%,0%)";
+    }, 1000 * 30);
+  } else {
+    alert("You are offline!");
   }
+}, []);
 
+const handleImageLoaded = () => {
+  setImageLoadCount((prevCount) => prevCount + 1);
+};
+  
 
-  function hr() {
-    if (!read){
-
-    
-    if (s) {
-      document.getElementById("menu").style.transform = "translate(-50%,0%)";
+function hr1() {
+  menuRef.current.style.transform = "translate(-50%,-900%)";
+  newPostRef.current.style.transform = "translate(-50%,300%)";
+  settingsRef.current.style.transform = "translate(-50%,200%)";
+  HesRef.current.style.transform = "translate(-50%,0%)";
+  
+}
+function hr() {
+  if (!read) {
+    if (cloase) {
       if (!loading) {
-        
-      document.getElementsByClassName("Hes")[0].style.transform = "translate(-50%,150%)";
-      document.getElementById("j1").style.transform = "translate(-50%,300%)";
-      document.getElementById("j2").style.transform = "translate(-50%,200%)";
-      s = false;
-      document.getElementById("ng").style.transform = "translate(0%,0%)";
-    
+        menuRef.current.style.transform = "translate(-50%,0%)";
+        HesRef.current.style.transform = "translate(-50%,150%)";
+        newPostRef.current.style.transform = "translate(-50%,300%)";
+        settingsRef.current.style.transform = "translate(-50%,200%)";
+        PostsRef.current.style.transform = "translate(0%,0%)";
+        setCloase(false);
       }
-
     } else {
       if (!loading) {
-        document.getElementById("ng").style.transform = "translate(-120%,0%)";     
-        document.getElementById("menu").style.transform = "translate(-50%,-250%)";
-        document.getElementById("j1").style.transform = "translate(-50%,0%)";
-        document.getElementById("j2").style.transform = "translate(-50%,0%)";
-        s = true;
+        PostsRef.current.style.transform = "translate(-120%,0%)";
+        menuRef.current.style.transform = "translate(-50%,-250%)";
+        newPostRef.current.style.transform = "translate(-50%,0%)";
+        settingsRef.current.style.transform = "translate(-50%,0%)";
+        setCloase(true);
       }
- 
     }
   }
-  }
+}
 
-  const PUBLIC_KEY = "BASbtuZCuVdXUMLM5By1Vw5Z_gkx_llfbv9ll0jPIsdqPYpefWlBPIsk7cs1OT-YhN0baqNODw1w_7Ac8aHg-CE";
-
-  const { getSubscription } = useSubscribe({ publicKey: PUBLIC_KEY });
-  const onSubmitSubscribe = async (e) => {
+const onSubmitSubscribe = async (e) => {
     e.preventDefault();
     try {
-      const existingSubscription = localStorage.getItem('subscription');
+      const existingSubscription = localStorage.getItem("subscription");
       if (existingSubscription) {
-        console.log('Subscription already exists.');
+        console.log("Subscription already exists.");
         await sendMessage("How are you ?");
-        return; 
+        return;
       }
-  
+
       const subscription = await getSubscription();
       await fetch(global.url + "/subscribe", {
         method: "POST",
@@ -129,25 +129,25 @@ function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-         
           subscription: subscription,
-          id: subscribeId, 
-          nick:localStorage.nick,
+          id: subscribeId,
+          nick: localStorage.nick,
         }),
       });
-      
-      localStorage.setItem('subscription', JSON.stringify(subscription));
-  
+
+      localStorage.setItem("subscription", JSON.stringify(subscription));
+
       console.log("Subscribe success");
       await sendMessage("Test notification!");
     } catch (error) {
       console.error(error);
       console.error("Failed to subscribe");
     }
-  };
-    const sendMessage = async (message) => {
+};
+
+const sendMessage = async (message) => {
     try {
-      await fetch(global.url +"/send", {
+      await fetch(global.url + "/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -162,38 +162,33 @@ function Home() {
     } catch (error) {
       console.error("Failed to send push notification");
     }
-  };
-  
-  async function senck(f) {
-    document.getElementById("ng").style.transform = "translate(-120%,0%)";
+};
 
-    
-    document.getElementById("menu").style.transform = "translate(-200%,0%)";
-    Setread(true);
-    setTimeout(()=>{
-    document.getElementById("place").style.transform = "translate(-50%,0%)";
-    document.getElementById("place-text").style.transform = "translate(0%,0%)";
-    document.getElementById("ng").style.transform = "translate(-120%,0%)";
-    document.getElementsByClassName("menus")[0].style.transform = "translate(-50%,0%)";
+async function senck(f) {
+  PostsRef.current.style.transform = "translate(-120%,0%)";
+  menuRef.current.style.transform = "translate(-200%,0%)";
+  Setread(true);
+  setTimeout(() => {
+    place.current.style.transform = "translate(-50%,0%)";
+    place_text.current.style.transform ="translate(0%,0%)";
+    PostsRef.current.style.transform = "translate(-120%,0%)";
+    menusRef.current.style.transform ="translate(-50%,0%)";
     document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-50%,0%)";
-    })
+  });
 }
-  async function censk() {
 
-    document.getElementById("ng").style.transform = "translate(0%,0%)";
-    
-    document.getElementById("menu").style.transform = "translate(-50%,0%)";
-    Setread(false)
-    document.getElementById("place").style.transform = "translate(-550%,0%)";
-    document.getElementById("place-text").style.transform = "translate(-550%,0%)";
-    document.getElementById("j3").style.transform = "translate(-50%,200%)";
-    document.getElementById("j4").style.transform = "translate(-50%,300%)";  
-
-    document.getElementsByClassName("menus")[0].style.transform = "translate(-300%,0%)";  
-    document.getElementsByClassName("image-gallery")[0].style.transform = "translate(-200%,0%)";
-
-  }
-
+async function censk() {
+  PostsRef.current.style.transform = "translate(0%,0%)";
+  menuRef.current.style.transform = "translate(-50%,0%)";
+  Setread(false);
+  place.current.style.transform ="translate(-550%,0%)";
+  place_text.current.style.transform ="translate(-550%,0%)";
+  exit.current.style.transform = "translate(-50%,200%)";
+  settingss.current.style.transform = "translate(-50%,300%)";
+  menusRef.current.style.transform ="translate(-300%,0%)";
+  document.getElementsByClassName("image-gallery")[0].style.transform ="translate(-200%,0%)";
+}
+  
 
 
 
@@ -208,8 +203,8 @@ function Home() {
           <PostSkeleton />
         </>
       ) : (
-        <div>
-          <div id="ng">
+        <>
+          <div ref={PostsRef} id="ng">
             {d.map((data, index) => (
               <Post
                 nick={data.nick}
@@ -224,18 +219,44 @@ function Home() {
               />
             ))}
           </div>
-        </div>
+        </>
       )}
+
       <div className="Read">
-        
-      <Fulltest p={censk} datas={lol} />
+        <Fulltest 
+          p={censk} 
+          datas={lol} 
+          place={place} 
+          place_text={place_text}
+          menus={menusRef}
+          exit={exit}
+          settings={settingss}
+        />
       </div>
 
-      <GMene op={hr} text={"Menu📋"} styles={"menu"} />
-      <GMene op={hr1} text={"New post📮"} styles={"j1"} />
-      <GMene op={onSubmitSubscribe} text={"Settings⚙️"} styles={"j2"} />
-      <Nws func={reload} />
-      <p id="version">1.0.2v</p>
+      <GMene 
+        op={hr}
+        text={"Menu📋"}
+        styles={"menu"}
+        ref={menuRef}
+      />
+      <GMene 
+        op={hr1} 
+        text={"New post📮"}
+        styles={"j1"}
+        ref={newPostRef} 
+      />
+      <GMene
+        op={onSubmitSubscribe}
+        text={"Settings⚙️"}
+        styles={"j2"}
+        ref={settingsRef}
+      />
+
+      <Nws 
+        func={reload} 
+        refs={HesRef} 
+      />
     </div>
   );
 }

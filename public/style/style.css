@@ -25,7 +25,7 @@
     border-color: rgb(32, 56, 160);
     border: 2px;
     border-style: solid;
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
 }
 
 
@@ -171,7 +171,11 @@
 * {
     font-family: 'Roboto';
 }
+#sg1:focus {
+    border-color: rgb(111, 135, 202); 
+    outline: none;
 
+}
 .inp_password:focus {
     border-color: rgb(111, 135, 202); 
     outline: none;
@@ -288,7 +292,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
 }
 
 
@@ -308,7 +312,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 .menu.open {
     transform: translate(-50%, -250%);
@@ -337,7 +341,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .j2 {
@@ -356,7 +360,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 .j3 {
@@ -375,7 +379,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 .j4 {
     position: fixed;
@@ -393,7 +397,7 @@
     font-size: 25px;
     border-radius: 20px;
     font-family: 'intro';
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease;
 }
 
 #dscroll {
@@ -720,9 +724,9 @@ font-size: 30px;
     position: fixed;
     left: 50%;
     transform: translate(-50%);
-    bottom:50%;
+    bottom:30%;
     width: 85%; 
-    height: 20%;
+    height: 35%;
     font-size: 20px;
     border-radius: 20px;
     border: 2px;
@@ -818,8 +822,8 @@ font-size: 30px;
 .Post-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Этот стиль сохраняет пропорции изображения и делает его заполняющим */
-    position: absolute; /* Позиционируем изображение относительно родительского div */
+    object-fit: cover; 
+    position: absolute;
     top: 0;
     left: 0;
     filter: blur(3px);
@@ -835,7 +839,6 @@ button {
 #ng {
     transition: transform 0.5s ease;
 }
-/* Создаем анимацию entry */
 @keyframes entry {
     0% {
       transform: translateX(100%);
@@ -847,7 +850,6 @@ button {
     }
   }
   
-  /* Применяем анимацию к элементу с классом "entry-animate" */
   .entry-animate {
     animation: entry 0.5s ease forwards;
   }
@@ -858,7 +860,7 @@ button {
   
   #Hes {
     
-    transition: transform 1s ease;
+    transition: transform 0.5s ease;
   }
   
     .Post-Skeleton {

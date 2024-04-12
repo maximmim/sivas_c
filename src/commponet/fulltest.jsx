@@ -1,55 +1,42 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import GMene from "../commponet/menu"
-export function Fulltest({p}) {
-  let data;
+export function Fulltest({p,place,place_text,menus,exit,settings}) {
+let data;
 let images
-
+const menuf = menus;
+const ecit = exit;
+const inf = settings;
+let s = false
     
   if (global.datg) {
     data = JSON.parse(global.datg);
-   //setTimeout(() => {
-   //  localStorage.removeItem('data');
-   //}, 1000);
-  
-  
-
-   images = [
- {
-   original: data.img,
-   thumbnail: data.img, 
-   description: data.alt,
- },
-  ];
-
+    images = [
+      {
+        original: data.img,
+        thumbnail: data.img, 
+        description: data.alt,
+      },
+    ];
 } 
 
   function hr2() {
 
   }
 
-  let s = false
+  
   function hr() {
     if (s){
-       document.getElementById("menus").style.transform = "translate(-50%,0%)";
-
-       document.getElementById("j3").style.transform = "translate(-50%,200%)";
-       document.getElementById("j4").style.transform = "translate(-50%,300%)";
-  
-
-  
-       s = false
+      menuf.current.style.transform = "translate(-50%,0%)";
+      ecit.current.style.transform = "translate(-50%,200%)";
+      inf.current.style.transform = "translate(-50%,300%)";
+      s = false
     }
     else {
-
-      
-  
-      document.getElementById("menus").style.transform = "translate(-50%,-230%)";
-      document.getElementById("j3").style.transform = "translate(-50%,0%)";
-      document.getElementById("j4").style.transform = "translate(-50%,0%)";
-
-
+      menuf.current.style.transform = "translate(-50%,-230%)";
+      ecit.current.style.transform = "translate(-50%,0%)";
+      inf.current.style.transform = "translate(-50%,0%)";
       s = true
     }
    
@@ -60,14 +47,40 @@ let images
     <>
       {global.datg && (
         <>
-        <GMene op={hr} text={"Menu📋"} styles={"menus"}/>
-<GMene op={hr2} text={"information ℹ️"} styles={"j3"} />
+        <GMene 
+        op={hr} 
+        text={"Menu📋"} 
+        styles={"menus"}
+        ref={menus}
+        />
 
-<GMene op={p} text={"Go to home🏠"} styles={"j4"} />
+        <GMene 
+        op={hr2} 
+        text={"information ℹ️"} 
+        styles={"j3"} 
+        ref={exit}
+        />
 
-  <h1 id='place'>{data.text}</h1>
-        <p id='place-text'>{data.fulltext}</p>
-          <ImageGallery showThumbnails={false} showPlayButton={false} items={images} />
+        <GMene 
+        op={p} 
+        text={"Go to home🏠"} 
+        styles={"j4"} 
+        ref={settings}
+        />
+
+        <h1 
+        ref={place} 
+        id='place'
+        >{data.text}
+        </h1>
+
+        <p 
+        ref={place_text} 
+        id='place-text'
+        >{data.fulltext}
+        </p>
+
+        <ImageGallery showThumbnails={false} showPlayButton={false} items={images} />
         </>
       )}
     </>
